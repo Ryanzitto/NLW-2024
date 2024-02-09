@@ -12,7 +12,7 @@ interface Note {
 export function App() {
   const [search, setSearch] = useState<string>("");
 
-  const [notes, setNote] = useState<Note[]>(() => {
+  const [notes, setNotes] = useState<Note[]>(() => {
     const notesOnStorage = localStorage.getItem("notes");
 
     if (notesOnStorage) {
@@ -31,7 +31,7 @@ export function App() {
 
     const notesArray = [newNote, ...notes];
 
-    setNote(notesArray);
+    setNotes(notesArray);
 
     localStorage.setItem("notes", JSON.stringify(notesArray));
   }
@@ -41,7 +41,9 @@ export function App() {
       return note.id !== id;
     });
 
-    setNote(notesArray);
+    setNotes(notesArray);
+
+    localStorage.setItem("notes", JSON.stringify(notesArray));
   }
 
   function handleSearch(e: ChangeEvent<HTMLInputElement>) {
