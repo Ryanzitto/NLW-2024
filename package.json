@@ -1,10 +1,13 @@
 {
+  "homepage": "https://Ryanzitto.github.io/NLW-2024",
   "name": "nlw-2024",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
